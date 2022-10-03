@@ -1,4 +1,4 @@
-function Card({product,addToCart}) {
+function Card({product,addToCart,cartItems}) {
     
     return <div className='col-lg-4 border  p-3'>
         <div className='row'>
@@ -8,7 +8,7 @@ function Card({product,addToCart}) {
             <div className='col-lg-12'>
                 <h3>{product.name}</h3>
                 <h6>Price Rs.{product.price}</h6>
-                <button onClick={()=>{
+                <button disabled={cartItems.some(obj=>obj.id===product.id)}onClick={()=>{
                      addToCart(product)
                 }} className='btn  btn-primary'>
                     Add to cart

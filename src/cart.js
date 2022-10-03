@@ -3,7 +3,10 @@
 function Cart({ cartItems, removeFromCart }) {
   return (
     <>
-      <ol class="list-group list-group-numbered">
+      {
+        cartItems.length===0 ? <div>No items in cart</div>:
+        <>
+          <ol class="list-group list-group-numbered">
         {
           cartItems.map((items) => {
             return <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -24,6 +27,8 @@ function Cart({ cartItems, removeFromCart }) {
           return prev = prev + curr.price
         }, 0)
       }</h3>
+        </>
+      }
     </>
   )
 }

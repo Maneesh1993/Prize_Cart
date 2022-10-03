@@ -7,7 +7,8 @@ import {useState} from 'react'
 
 
 function App() {
-  const products = [
+
+  const[products,setProducts]=useState([
     {
       id: 1,
       name: "Guava plant",
@@ -46,6 +47,9 @@ function App() {
       img: "https://m.media-amazon.com/images/I/51aV8JF86YL._SX466_.jpg"
     },
   ]
+  )
+  
+    
 
   const [cartItems,setCartItems] = useState([])
 
@@ -65,7 +69,7 @@ function App() {
           <div className='row'>
             {
               products.map((product) => {
-                return <Card product={product} addToCart={addToCart} />
+                return <Card product={product} addToCart={addToCart} cartItems={cartItems}/>
               })
             }
             {/* <Card /> */}
